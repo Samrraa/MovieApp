@@ -23,5 +23,73 @@
     <color name="gray">#33737373</color>
 
     <color name="profile_background">#9903050A</color>
+    <!-- Screen -->
+    <color name="screen_light">#F7F7F7</color>
+    <color name="screen_dark">#132132</color>
+
+    <!-- Card -->
+    <color name="card_light">#FFFFFF</color>
+    <color name="card_dark">#1B1C2A</color>
+
+    <!-- Bottom Sheet -->
+    <color name="bottom_sheet_light">#FFFFFF</color>
+    <color name="bottom_sheet_dark">#1B1C2A</color>
+
+    <!-- Bottom Sheet Card -->
+    <color name="bottom_sheet_card_light">#F6F6F6</color>
+    <color name="bottom_sheet_card_dark">#242533</color>
+
+    <!-- ========== Shade ========== -->
+    <color name="shade_primary_light">#313131</color>
+    <color name="shade_primary_dark">#E1E1E3</color>
+
+    <color name="shade_secondary_light">#717171</color>
+    <color name="shade_secondary_dark">#A4A4AA</color>
+
+    <color name="shade_tertiary_light">#A5A5A5</color>
+    <color name="shade_tertiary_dark">#72727B</color>
+
+    <color name="shade_quaternary_light">#ECECEC</color>
+    <color name="shade_quaternary_dark">#2D2E3B</color>
+
+    <color name="shade_quinairy_light">#F6F6F6</color>
+    <color name="shade_quinairy_dark">#242533</color>
+
+    <!-- ========== Brand ========== -->
+    <color name="brand_primary_light">#536DFE</color>
+    <color name="brand_primary_dark">#8C9EFF</color>
+
+    <color name="brand_secondary_light">#BEC8FF</color>
+    <color name="brand_secondary_dark">#464D7B</color>
+
+    <color name="brand_tertiary_light">#F1F3FF</color>
+    <color name="brand_tertiary_dark">#24263B</color>
+
+    <!-- ========== Button ========== -->
+    <color name="button_primary_light">#536DFE</color>
+    <color name="button_primary_dark">#8C9EFF</color>
+
+    <color name="button_secondary_light">#F1F3FF</color>
+    <color name="button_secondary_dark">#24263B</color>
+
+    <color name="button_disabled_light">#E5E5E5</color>
+    <color name="button_disabled_dark">#242533</color>
+
+    <!-- On Button Colors -->
+    <color name="on_button_primary_light">#FFFFFF</color>
+    <color name="on_button_primary_dark">#1B1C2A</color>
+
+    <color name="on_button_secondary_light">#313131</color>
+    <color name="on_button_secondary_dark">#E1E1E3</color>
+
+    <color name="on_button_disabled_light">#A5A5A5</color>
+    <color name="on_button_disabled_dark">#72727B</color>
+
+    <color name="on_button_tertiary_light">#536DFE</color>
+    <color name="on_button_tertiary_dark">#8C9EFF</color>
+
+    <!-- Button On Secondary -->
+    <color name="on_button_secondary">#313131</color>
+
 
 </resources>
