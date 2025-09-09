@@ -17,10 +17,10 @@
 
     <color name="profile_background">#99FFFFFF</color>
 
-    <color name="screen">#132132</color>
-    <color name="card">#1B1C2A</color>
-    <color name="bottom_sheet">#1B1C2A</color>
-    <color name="bottom_sheet_card">#242533</color>
+    <color name="background_screen">#132132</color>
+    <color name="background_card">#1B1C2A</color>
+    <color name="background_bottom_sheet">#1B1C2A</color>
+    <color name="background_bottom_sheet_card">#242533</color>
     <color name="shade_primary">#E1E1E3</color>
     <color name="shade_secondary">#A4A4AA</color>
     <color name="shade_tertiary">#72727B</color>
@@ -36,7 +36,15 @@
     <color name="on_button_secondary">#E1E1E3</color>
     <color name="on_button_tertiary">#8C9EFF</color>
     <color name="on_button_disabled">#72727B</color>
-
+    <color name="stroke_primary">#24263B</color>
+    <color name="overlay_primary">#121321</color>
+    <color name="overlay_secondary">#121321</color>
+    <color name="additional_primary_red">#FF6B6B</color>
+    <color name="additional_primary_green">#00E676</color>
+    <color name="additional_primary_yellow">#FFD600</color>
+    <color name="additional_secondary_red">#2C202D</color>
+    <color name="additional_secondary_green">#232A31</color>
+    <color name="additional_secondary_yellow">#2D2927</color>
 
 
 </resources>

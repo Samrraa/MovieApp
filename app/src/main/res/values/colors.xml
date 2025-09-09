@@ -23,10 +23,10 @@
     <color name="gray">#33737373</color>
 
     <color name="profile_background">#9903050A</color>
-    <color name="screen">#F7F7F7</color>
-    <color name="card">#FFFFFF</color>
-    <color name="bottom_sheet">#FFFFFF</color>
-    <color name="bottom_sheet_card">#F6F6F6</color>
+    <color name="background_screen">#F7F7F7</color>
+    <color name="background_card">#FFFFFF</color>
+    <color name="background_bottom_sheet">#FFFFFF</color>
+    <color name="background_bottom_sheet_card">#F6F6F6</color>
     <color name="shade_primary">#313131</color>
     <color name="shade_secondary">#717171</color>
     <color name="shade_tertiary">#A5A5A5</color>
@@ -42,6 +42,15 @@
     <color name="on_button_secondary">#313131</color>
     <color name="on_button_disabled">#A5A5A5</color>
     <color name="on_button_tertiary">#536DFE</color>
+    <color name="stroke_primary">#ECECEC</color>
+    <color name="overlay_primary">#FFFFFF</color>
+    <color name="overlay_secondary">#FFFFFF</color>
+    <color name="additional_primary_red">#EF4444</color>
+    <color name="additional_primary_green">#22C55E</color>
+    <color name="additional_primary_yellow">#FACC15</color>
+    <color name="additional_secondary_red">#EBEEEE</color>
+    <color name="additional_secondary_green">#EEF5EF</color>
+    <color name="additional_secondary_yellow">#FFFAEB</color>
 
 
 </resources>
