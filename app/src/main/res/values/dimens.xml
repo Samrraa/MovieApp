@@ -18,9 +18,31 @@
     <dimen name="text_medium">14sp</dimen>
     <dimen name="text_small">12sp</dimen>
 
+    <dimen name="title_xl_medium">24sp</dimen>
+    <dimen name="title_lg_medium">20sp</dimen>
+    <dimen name="title_md_medium">18sp</dimen>
+    <dimen name="title_sm_medium">16sp</dimen>
+
+    <dimen name="body_lg_regular">16sp</dimen>
+    <dimen name="body_lg_medium">16sp</dimen>
+    <dimen name="body_lg_semi_bold">16sp</dimen>
+
+    <dimen name="body_md_regular">14sp</dimen>
+    <dimen name="body_md_medium">14sp</dimen>
+    <dimen name="body_md_semi_bold">14sp</dimen>
+
+    <dimen name="body_sm_regular">12sp</dimen>
+    <dimen name="body_sm_medium">12sp</dimen>
+    <dimen name="body_sm_semi_bold">12sp</dimen>
+
+    <dimen name="label_md_regular">12sp</dimen>
+    <dimen name="label_md_medium">12sp</dimen>
+    <dimen name="label_md_semi_bold">12sp</dimen>
+
     <!-- radius -->
     <dimen name="radius_large">24dp</dimen>
-    <dimen name="radius_medium">16dp</dimen>
+    <dimen name="radius_medium">16dp
+    </dimen>
     <dimen name="radius_small">8dp</dimen>
     <dimen name="radius_too_small">4dp</dimen>
 
