@@ -129,6 +129,18 @@ class HomeAdapter(
                 is HomeItem.Upcoming -> {
                     bindMovie(holder, currentItem.items, currentItem.type)
                 }
+
+                is HomeItem.Collections -> {
+                    holder.binding.run {
+                        setVariable(
+                            BR.adapterRecycler,
+                            CollectionAdapter(
+                                currentItem.items,
+                                listener as CollectionInteractionListener
+                            )
+                        )
+                    }
+                }
             }
     }
 
@@ -171,7 +183,9 @@ class HomeAdapter(
                 is HomeItem.NowStreaming,
                 is HomeItem.Trending,
                 is HomeItem.Upcoming,
-                -> R.layout.list_movie
+                    -> R.layout.list_movie
+
+                is HomeItem.Collections -> R.layout.list_collection
             }
         }
         return -1
