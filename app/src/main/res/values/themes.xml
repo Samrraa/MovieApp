@@ -79,30 +79,6 @@
         <item name="android:textColor">@color/shade_ternary_color</item>
     </style>
 
-    <style name="Body_MD">
-        <item name="android:textSize">@dimen/text_body_md</item>
-    </style>
-
-    <style name="Body_MD.Medium">
-        <item name="android:fontFamily">@font/manrope_medium</item>
-    </style>
-
-    <style name="Label_MD">
-        <item name="android:textSize">@dimen/text_label_md</item>
-    </style>
-
-    <style name="Label_MD.Medium">
-        <item name="android:fontFamily">@font/manrope_medium</item>
-    </style>
-
-    <style name="Body_SM">
-        <item name="android:textSize">@dimen/text_body_sm</item>
-    </style>
-
-    <style name="Body_SM.Regular">
-        <item name="android:fontFamily">@font/manrope</item>
-    </style>
-
     <style name="CardCorners">
         <item name="cornerFamily">rounded</item>
     </style>
@@ -245,7 +221,7 @@
     </style>
 
     <style name="Body_LG.SemiBold">
-        <item name="android:fontFamily">@font/manrope_semi_bold</item>
+        <item name="android:fontFamily">@font/manrope_semibold</item>
     </style>
 
     <!-- Body MD -->
@@ -258,7 +234,7 @@
     </style>
 
     <style name="Body_MD.SemiBold">
-        <item name="android:fontFamily">@font/manrope_semi_bold</item>
+        <item name="android:fontFamily">@font/manrope_semibold</item>
     </style>
 
     <!-- Body SM -->
@@ -271,7 +247,7 @@
     </style>
 
     <style name="Body_SM.SemiBold" >
-        <item name="android:fontFamily">@font/manrope_semi_bold</item>
+        <item name="android:fontFamily">@font/manrope_semibold</item>
     </style>
 
     <!-- ========= Label ========= -->
@@ -289,7 +265,7 @@
     </style>
 
     <style name="Label_MD.SemiBold" >
-        <item name="android:fontFamily">@font/manrope_semi_bold</item>
+        <item name="android:fontFamily">@font/manrope_semibold</item>
     </style>
 
     <style name="CorneredImage">

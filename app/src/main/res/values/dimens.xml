@@ -21,9 +21,7 @@
     <dimen name="text_large">20sp</dimen>
     <dimen name="text_medium">16sp</dimen>
     <dimen name="text_small">12sp</dimen>
-    <dimen name="text_body_md">14sp</dimen>
-    <dimen name="text_body_sm">12sp</dimen>
-    <dimen name="text_label_md">12sp</dimen>
+
 
     <!-- radius -->
     <dimen name="radius_large">24dp</dimen>
