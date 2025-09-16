@@ -11,8 +11,7 @@ import com.karrar.movieapp.ui.base.BaseAdapter
 import com.karrar.movieapp.ui.base.BaseInteractionListener
 import com.karrar.movieapp.ui.home.HomeInteractionListener
 import com.karrar.movieapp.ui.home.HomeItem
-import com.karrar.movieapp.ui.models.MediaUiState
-import com.karrar.movieapp.utilities.Constants
+import com.karrar.movieapp.ui.models.MediaUi
 
 class HomeAdapter(
     private var homeItems: MutableList<HomeItem>,
@@ -51,73 +50,67 @@ class HomeAdapter(
                     )
                 }
 
-                is HomeItem.TvShows -> {
-                    holder.binding.run {
-                        if (currentItem.items.isNotEmpty()) {
-                            setVariable(BR.topRated, currentItem.items.first())
-                            setVariable(BR.popular, currentItem.items[1])
-                            setVariable(BR.latest, currentItem.items.last())
-                            setVariable(BR.listener, listener as TVShowInteractionListener)
-                        }
-                    }
-                }
-
-                is HomeItem.Actor -> {
-                    holder.binding.run {
-                        setVariable(
-                            BR.adapterRecycler, ActorAdapter(
-                                currentItem.items,
-                                R.layout.item_actor_home,
-                                listener as ActorsInteractionListener
-                            )
-                        )
-                        setVariable(BR.listener, listener as HomeInteractionListener)
-                    }
-
-                }
-
-                is HomeItem.AiringToday -> {
+                is HomeItem.RecentlyReleased -> {
                     holder.binding.run {
                         setVariable(
                             BR.adapterRecycler,
                             MediaAdapter(
-                                currentItem.items.take(Constants.MAX_NUMBER_AIRING_TODAY),
-                                R.layout.item_airing_today,
-                                listener as MediaInteractionListener
+                                currentItem.items,
+                                listener as MediaInteractionListener,
+                                "Recently Released"
                             )
                         )
-                        setVariable(BR.count, currentItem.items.size)
                     }
                 }
 
-                is HomeItem.Adventure -> {
-                    bindMovie(holder, currentItem.items, currentItem.type)
-                }
-
-                is HomeItem.Mystery -> {
-                    bindMovie(holder, currentItem.items, currentItem.type)
-                }
-
-                is HomeItem.NowStreaming -> {
-                    bindMovie(holder, currentItem.items, currentItem.type)
-                }
-
-                is HomeItem.OnTheAiring -> {
+                is HomeItem.UpcomingMovies -> {
                     holder.binding.run {
                         setVariable(
                             BR.adapterRecycler,
-                            TVShowAdapter(currentItem.items, listener as TVShowInteractionListener)
+                            MediaAdapter(
+                                currentItem.items,
+                                listener as MediaInteractionListener,
+                                "Upcoming Movies"
+                            )
                         )
-                        setVariable(BR.movieType, currentItem.type)
                     }
                 }
 
-                is HomeItem.Trending -> {
-                    bindMovie(holder, currentItem.items, currentItem.type)
-                }
+                is HomeItem.MatchesYourVibe -> {
+                    holder.binding.run {
+                        setVariable(
+                            BR.adapterRecycler,
+                            MediaAdapter(
+                                currentItem.items,
+                                listener as MediaInteractionListener,
+                                "Matches your Vibe"
+                            )
+                        )
+                    }                }
 
-                is HomeItem.Upcoming -> {
-                    bindMovie(holder, currentItem.items, currentItem.type)
+                is HomeItem.TopRatedTVShows -> {
+                    holder.binding.run {
+                        setVariable(
+                            BR.adapterRecycler,
+                            MediaAdapter(
+                                currentItem.items,
+                                listener as MediaInteractionListener,
+                                "Top Rated TV Shows"
+                            )
+                        )
+                    }                }
+
+                is HomeItem.RecentlyViewed -> {
+                    holder.binding.run {
+                        setVariable(
+                            BR.adapterRecycler,
+                            MediaAdapter(
+                                currentItem.items,
+                                listener as MediaInteractionListener,
+                                "Recently Viewed"
+                            )
+                        )
+                    }
                 }
 
                 is HomeItem.Collections -> {
@@ -134,7 +127,7 @@ class HomeAdapter(
             }
     }
 
-    private fun bindMovie(holder: ItemViewHolder, items: List<MediaUiState>, type: HomeItemsType) {
+    private fun bindMovie(holder: ItemViewHolder, items: List<MediaUi>, type: HomeItemsType) {
         holder.binding.run {
             setVariable(
                 BR.adapterRecycler,
@@ -163,17 +156,13 @@ class HomeAdapter(
     override fun getItemViewType(position: Int): Int {
         if (homeItems.isNotEmpty()) {
             return when (homeItems[position]) {
-                is HomeItem.Actor -> R.layout.list_actor
-                is HomeItem.TvShows -> R.layout.list_tv_shows
                 is HomeItem.Slider -> R.layout.list_popular
-                is HomeItem.AiringToday -> R.layout.list_airing_today
-                is HomeItem.OnTheAiring -> R.layout.list_tvshow
-                is HomeItem.Adventure,
-                is HomeItem.Mystery,
-                is HomeItem.NowStreaming,
-                is HomeItem.Trending,
-                is HomeItem.Upcoming,
-                    -> R.layout.list_movie
+                is HomeItem.RecentlyReleased,
+                is HomeItem.UpcomingMovies,
+                is HomeItem.MatchesYourVibe,
+                is HomeItem.TopRatedTVShows,
+                is HomeItem.RecentlyViewed,
+                    -> R.layout.list_media
 
                 is HomeItem.Collections -> R.layout.list_collection
             }

@@ -35,15 +35,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 homeAdapter.setItems(
                     mutableListOf(
                         it.popularMovies,
-                        it.tvShowsSeries,
-                        it.onTheAiringSeries,
-                        it.airingTodaySeries,
+                        it.recentlyReleased,
                         it.upcomingMovies,
-                        it.nowStreamingMovies,
-                        it.mysteryMovies,
-                        it.adventureMovies,
-                        it.trendingMovies,
-                        it.actors,
+                        it.matchesYourVibe,
+                        it.topRatedTVShows,
+                        it.recentlyViewed,
                         it.collections
                     )
                 )

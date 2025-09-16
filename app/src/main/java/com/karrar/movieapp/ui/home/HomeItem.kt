@@ -1,32 +1,16 @@
 package com.karrar.movieapp.ui.home
 
-import com.karrar.movieapp.domain.enums.HomeItemsType
-import com.karrar.movieapp.ui.models.ActorUiState
 import com.karrar.movieapp.ui.home.homeUiState.PopularUiState
+import com.karrar.movieapp.ui.models.ActorUiState
 import com.karrar.movieapp.ui.models.CollectionUiState
-import com.karrar.movieapp.ui.models.MediaUiState
+import com.karrar.movieapp.ui.models.MediaUi
 
 sealed class HomeItem(val priority: Int) {
-
     data class Slider(val items: List<PopularUiState>) : HomeItem(0)
-
-    data class TvShows(val items: List<MediaUiState>) : HomeItem(1)
-
-    data class OnTheAiring(val items: List<MediaUiState>, val type: HomeItemsType = HomeItemsType.ON_THE_AIR) : HomeItem(2)
-
-    data class Trending(val items: List<MediaUiState>, val type: HomeItemsType = HomeItemsType.TRENDING) : HomeItem(3)
-
-    data class AiringToday(val items: List<MediaUiState>) : HomeItem(4)
-
-    data class NowStreaming(val items: List<MediaUiState>, val type: HomeItemsType = HomeItemsType.NOW_STREAMING) : HomeItem(5)
-
-    data class Upcoming(val items: List<MediaUiState>, val type: HomeItemsType = HomeItemsType.UPCOMING) : HomeItem(6)
-
-    data class Mystery(val items: List<MediaUiState>, val type: HomeItemsType = HomeItemsType.MYSTERY) : HomeItem(7)
-
-    data class Adventure(val items: List<MediaUiState>, val type: HomeItemsType = HomeItemsType.ADVENTURE) : HomeItem(8)
-
-    data class Actor(val items: List<ActorUiState>) : HomeItem(9)
-    data class Collections(val items: List<CollectionUiState>) : HomeItem(10)
-
+    data class RecentlyReleased(val items: List<MediaUi>) : HomeItem(1)
+    data class UpcomingMovies(val items: List<MediaUi>) : HomeItem(2)
+    data class MatchesYourVibe(val items: List<MediaUi>) : HomeItem(3)
+    data class TopRatedTVShows(val items: List<MediaUi>) : HomeItem(4)
+    data class RecentlyViewed(val items: List<MediaUi>) : HomeItem(5)
+    data class Collections(val items: List<CollectionUiState>) : HomeItem(7)
 }

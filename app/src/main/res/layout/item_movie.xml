@@ -11,7 +11,7 @@
 
         <variable
             name="item"
-            type="com.karrar.movieapp.ui.models.MediaUiState" />
+            type="com.karrar.movieapp.ui.models.MediaUi" />
 
         <variable
             name="type"

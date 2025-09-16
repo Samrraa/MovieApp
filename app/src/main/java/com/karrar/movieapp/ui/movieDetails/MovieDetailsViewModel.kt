@@ -115,13 +115,13 @@ class MovieDetailsViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val result = getMovieDetailsUseCase.getSimilarMovie(movieId)
-                _uiState.update {
+                /*_uiState.update {
                     it.copy(
                         similarMoviesResult = result.map { media ->
                             mediaUIStateMapper.map(media)
                         }, isLoading = false
                     )
-                }
+                }*/
                 onAddMovieDetailsItemOfNestedView(
                     DetailItemUIState.SimilarMovies(_uiState.value.similarMoviesResult)
                 )
