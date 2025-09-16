@@ -103,5 +103,6 @@
     <string name="episode_title">%1$d. %2$s</string>
     <string name="season_number">(%1$s Seasons)</string>
     <string name="upcoming_movies">Upcoming Movies</string>
+    <string name="your_collections">Your Collections</string>
     <string name="show_more">Show More</string>
 </resources>
