@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="com.karrar.movieapp.ui.adapters.CollectionInteractionListener" />
+
+        <variable
+            name="item"
+            type="com.karrar.movieapp.ui.models.CollectionUiState" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:background="@drawable/collection_card_background"
+        android:onClick="@{()->listener.onCollectionClick(item.id)}"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/iv_folder"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/due_tone_folder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/brand_primary" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{item.title}"
+            android:textColor="@color/shade_primary"
+            android:textFontWeight="500"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_sub_title"
+            app:layout_constraintEnd_toStartOf="@id/iv_arrow"
+            app:layout_constraintStart_toEndOf="@id/iv_folder"
+            app:layout_constraintTop_toTopOf="@id/iv_folder" />
+
+        <TextView
+            android:id="@+id/tv_sub_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{item.subtitle}"
+            android:textColor="@color/shade_secondary"
+            android:textFontWeight="400"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_folder"
+            app:layout_constraintEnd_toEndOf="@id/tv_title"
+            app:layout_constraintStart_toStartOf="@id/tv_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+        <ImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/outline_alt_arrow_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/shade_tertiary" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
