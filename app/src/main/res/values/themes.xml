@@ -79,7 +79,6 @@
         <item name="android:textColor">@color/shade_ternary_color</item>
     </style>
 
-
     <style name="CardCorners">
         <item name="cornerFamily">rounded</item>
     </style>
@@ -129,6 +128,15 @@
     <style name="Circle">
         <item name="cornerSize">50%</item>
     </style>
+
+    <style name="CastImgCorners">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">12dp</item>
+        <item name="cornerSizeTopRight">12dp</item>
+        <item name="cornerSizeBottomLeft">12dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
 
     <style name="Chip.Regular.Small" parent="Widget.MaterialComponents.Chip.Filter">
         <item name="chipStrokeColor">@color/chip_stroke</item>
@@ -213,7 +221,7 @@
     </style>
 
     <style name="Body_LG.SemiBold">
-        <item name="android:fontFamily">@font/manrope_semi_bold</item>
+        <item name="android:fontFamily">@font/manrope_semibold</item>
     </style>
 
     <!-- Body MD -->
@@ -226,7 +234,7 @@
     </style>
 
     <style name="Body_MD.SemiBold">
-        <item name="android:fontFamily">@font/manrope_semi_bold</item>
+        <item name="android:fontFamily">@font/manrope_semibold</item>
     </style>
 
     <!-- Body SM -->
@@ -239,7 +247,7 @@
     </style>
 
     <style name="Body_SM.SemiBold" >
-        <item name="android:fontFamily">@font/manrope_semi_bold</item>
+        <item name="android:fontFamily">@font/manrope_semibold</item>
     </style>
 
     <!-- ========= Label ========= -->
@@ -257,7 +265,7 @@
     </style>
 
     <style name="Label_MD.SemiBold" >
-        <item name="android:fontFamily">@font/manrope_semi_bold</item>
+        <item name="android:fontFamily">@font/manrope_semibold</item>
     </style>
 
     <style name="CorneredImage">
