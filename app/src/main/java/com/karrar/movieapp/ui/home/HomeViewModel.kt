@@ -71,8 +71,10 @@ class HomeViewModel @Inject constructor(
                     if (list.isNotEmpty()) {
                         val items = list.map(popularUiMapper::map)
                         _homeUiState.update {
-                            it.copy(popularMovies = HomeItem.Slider(items),
-                                isLoading = false)
+                            it.copy(
+                                popularMovies = HomeItem.Slider(items),
+                                isLoading = false
+                            )
                         }
                     }
                 }
@@ -81,6 +83,7 @@ class HomeViewModel @Inject constructor(
             }
         }
     }
+
 
     private fun onError(message: String) {
         val errors = _homeUiState.value.error.toMutableList()
