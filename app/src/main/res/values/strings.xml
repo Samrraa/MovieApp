@@ -105,4 +105,8 @@
     <string name="upcoming_movies">Upcoming Movies</string>
     <string name="your_collections">Your Collections</string>
     <string name="show_more">Show More</string>
+    <string name="recently_released">Recently Released</string>
+    <string name="let_us_choose_for_you">Let Us Choose For You!</string>
+    <string name="we_ll_help_you_skip">We’ll help you skip the scroll and go straight to the good stuff.</string>
+    <string name="image_card">image_card</string>
 </resources>

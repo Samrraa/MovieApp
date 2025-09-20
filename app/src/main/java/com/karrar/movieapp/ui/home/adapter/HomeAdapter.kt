@@ -73,6 +73,14 @@ class HomeAdapter(
                     }
                 }
 
+                is HomeItem.ItemSuggestion -> {
+                    holder.binding.run {
+                        setVariable(BR.main_title, currentItem.mainTitle)
+                        setVariable(BR.secondary_title, currentItem.secondaryTitle)
+                        setVariable(BR.info_title, currentItem.infoTitle)
+                    }
+                }
+
                 is HomeItem.UpcomingMovies -> {
                     holder.binding.run {
                         setVariable(
@@ -168,6 +176,7 @@ class HomeAdapter(
             return when (homeItems[position]) {
                 is HomeItem.Slider -> R.layout.list_popular
                 is HomeItem.RecentlyReleased,
+                is HomeItem.ItemSuggestion -> R.layout.item_suggestion
                 is HomeItem.UpcomingMovies,
                 is HomeItem.MatchesYourVibe,
                 is HomeItem.TopRatedTVShows,
