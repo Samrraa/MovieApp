@@ -11,7 +11,7 @@
 
         <variable
             name="listener"
-            type="com.karrar.movieapp.ui.adapters.ActorsInteractionListener" />
+            type="com.karrar.movieapp.ui.adapters.CrewInteractionListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +21,7 @@
         android:background="@drawable/cast_card_shape">
 
         <TextView
-            android:id="@+id/crew_jop_name"
+            android:id="@+id/crew_job_name"
             style="@style/Body_MD.Regular"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -61,7 +61,7 @@
             android:textColor="@color/shade_primary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/crew_jop_name"
+            app:layout_constraintStart_toEndOf="@+id/crew_job_name"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Bob Kane" />
 

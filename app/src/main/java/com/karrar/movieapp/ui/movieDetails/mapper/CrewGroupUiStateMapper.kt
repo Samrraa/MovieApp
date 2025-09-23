@@ -12,7 +12,7 @@ class CrewGroupUiStateMapper @Inject constructor() {
             .map { (job, crewList) ->
                 CrewGroupUiState(
                     job = job,
-                    names = crewList.joinToString(",") { it.crewName }
+                    names = crewList.joinToString(", ") { it.crewName }
                 )
             }.take(limit)
     }
