@@ -14,6 +14,11 @@
     </style>
 
 
+    <style name="CorneredImage.Medium">
+        <item name="cornerSize">@dimen/radius_md</item>
+    </style>
+
+
     <style name="AppBottomSheetDialogTheme" parent="Theme.Design.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
     </style>
