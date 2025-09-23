@@ -42,6 +42,7 @@ class TvShowDetailsFragment : BaseFragment<FragmentTvShowDetailsBinding>() {
         }
     }
 
+
     private fun collectEvents() {
         collectLast(viewModel.tvShowDetailsUIEvent) {
             it.getContentIfNotHandled()?.let { onEvent(it) }
@@ -78,6 +79,10 @@ class TvShowDetailsFragment : BaseFragment<FragmentTvShowDetailsBinding>() {
             }
             TvShowDetailsUIEvent.MessageAppear -> {
                 Toast.makeText(context, getString(R.string.submit_toast), Toast.LENGTH_SHORT).show()
+            }
+
+            TvShowDetailsUIEvent.ClickGiveRatingEvent -> {
+
             }
         }
         action?.let { findNavController().navigate(it) }

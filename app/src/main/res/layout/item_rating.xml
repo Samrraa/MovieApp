@@ -8,6 +8,7 @@
             name="viewModel"
             type="com.karrar.movieapp.ui.movieDetails.MovieDetailsViewModel" />
 
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

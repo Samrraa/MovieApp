@@ -8,6 +8,7 @@ data class TvShowDetailsUIState(
     val seriesSeasonsResult: List<SeasonUIState> = listOf(),
     val seriesReviewsResult: List<ReviewUIState> = listOf(),
     val detailItemResult: List<DetailItemUIState> = listOf(),
+    val showRatingLayout: Boolean = false,
     val ratingValue: Float = 0F,
     val isLoading: Boolean = false,
     val isLogin: Boolean = false,

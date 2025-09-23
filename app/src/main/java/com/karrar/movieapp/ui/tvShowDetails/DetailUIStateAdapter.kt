@@ -71,12 +71,21 @@ class DetailUIStateAdapter(
                     setVariable(BR.listener, listener)
                 }
             }
-            is DetailItemUIState.ReviewText -> {}
+            DetailItemUIState.ReviewText -> {}
             DetailItemUIState.SeeAllReviewsButton -> {
                 holder.binding.run {
                     setVariable(BR.listener, listener as DetailInteractionListener)
                 }
             }
+
+            DetailItemUIState.GiveTvShowStars -> {
+                holder.binding.run {
+                    setVariable(BR.listener, listener as DetailInteractionListener)
+                }
+
+        }
+
+
         }
     }
 
@@ -84,6 +93,7 @@ class DetailUIStateAdapter(
         items = newItems.sortedBy { it.priority }
         super.setItems(items)
     }
+
 
     override fun areItemsSame(oldItem: DetailItemUIState, newItem: DetailItemUIState): Boolean {
         return oldItem.priority == newItem.priority
@@ -98,6 +108,7 @@ class DetailUIStateAdapter(
             is DetailItemUIState.Comment -> R.layout.item_tvshow_review
             is DetailItemUIState.ReviewText -> R.layout.item_review_text
             DetailItemUIState.SeeAllReviewsButton -> R.layout.item_see_all_reviews
+            DetailItemUIState.GiveTvShowStars -> R.layout.did_you_watch_section
         }
     }
 }

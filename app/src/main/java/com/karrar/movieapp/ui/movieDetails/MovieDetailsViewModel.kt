@@ -208,6 +208,8 @@ class MovieDetailsViewModel @Inject constructor(
         _movieDetailsUIEvent.update { Event(MovieDetailsUIEvent.ClickReviewsEvent) }
     }
 
+    override fun onGiveStarsClicked() {}
+
     override fun onClickMovie(movieId: Int) {
         _movieDetailsUIEvent.update { Event(MovieDetailsUIEvent.ClickMovieEvent(movieId)) }
     }

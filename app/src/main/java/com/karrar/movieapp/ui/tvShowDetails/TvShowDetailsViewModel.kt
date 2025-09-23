@@ -14,6 +14,7 @@ import com.karrar.movieapp.ui.movieDetails.mapper.ActorUIStateMapper
 import com.karrar.movieapp.ui.tvShowDetails.tvShowUIMapper.TvShowMapperContainer
 import com.karrar.movieapp.ui.tvShowDetails.tvShowUIState.DetailItemUIState
 import com.karrar.movieapp.ui.tvShowDetails.tvShowUIState.Error
+import com.karrar.movieapp.ui.tvShowDetails.tvShowUIState.TvShowDetailsResultUIState
 import com.karrar.movieapp.ui.tvShowDetails.tvShowUIState.TvShowDetailsUIState
 import com.karrar.movieapp.utilities.Constants
 import com.karrar.movieapp.utilities.Event
@@ -57,6 +58,7 @@ class TvShowDetailsViewModel @Inject constructor(
         getTvShowCast(args.tvShowId)
         getSeasons(args.tvShowId)
         getTvShowReviews(args.tvShowId)
+
     }
 
     private fun getTvShowDetails(tvShowId: Int) {
@@ -183,6 +185,7 @@ class TvShowDetailsViewModel @Inject constructor(
 
         if (showSeeAll) {
             updateDetailItems(DetailItemUIState.SeeAllReviewsButton)
+            updateDetailItems(DetailItemUIState.GiveTvShowStars)
         }
     }
 
@@ -210,6 +213,13 @@ class TvShowDetailsViewModel @Inject constructor(
         _tvShowDetailsUIEvent.update { Event(TvShowDetailsUIEvent.ClickReviewsEvent) }
     }
 
+    override fun onGiveStarsClicked() {
+        _stateUI.update {
+            it.copy(showRatingLayout = !it.showRatingLayout)
+        }
+        _tvShowDetailsUIEvent.update { Event(TvShowDetailsUIEvent.ClickGiveRatingEvent) }
+
+    }
     override fun onClickActor(actorID: Int) {
         _tvShowDetailsUIEvent.update { Event(TvShowDetailsUIEvent.ClickCastEvent(actorID)) }
     }
