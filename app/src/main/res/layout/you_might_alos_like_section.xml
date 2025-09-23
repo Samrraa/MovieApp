@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="listener"
+            type="com.karrar.movieapp.ui.home.adapter.TVShowInteractionListener" />
+
+        <variable
+            name="item"
+            type="com.karrar.movieapp.ui.models.MediaUiState" />
+
+        <variable
+            name="type"
+            type="com.karrar.movieapp.domain.enums.HomeItemsType" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/shapeable_imge_view"
+            android:layout_width="@dimen/media_card_width"
+            android:layout_height="182dp"
+            android:layout_marginHorizontal="@dimen/spacing_small"
+            android:onClick="@{()->listener.onClickTVShow(item.id)}"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="1:1.4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:posterImage="@{item.imageUrl}"
+            app:shapeAppearanceOverlay="@style/CardCorners.Medium"
+            tools:background="@color/yellow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="4dp"
+            android:paddingVertical="2dp"
+            android:drawablePadding="4dp"
+            android:text="7.5"
+            android:textColor="@color/shade_primary"
+            android:background="@drawable/rating_background"
+            app:drawableEndCompat="@drawable/star"
+            app:layout_constraintEnd_toEndOf="@+id/shapeable_imge_view"
+            app:layout_constraintTop_toTopOf="@id/shapeable_imge_view" />
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="@dimen/spacing_small"
+            android:textSize="14sp"
+            android:textColor="@color/shade_secondary"
+            android:maxLines="2"
+            android:gravity="start"
+            app:layout_constraintTop_toBottomOf="@id/shapeable_imge_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="The Flash" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
