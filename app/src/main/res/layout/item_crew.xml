@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.karrar.movieapp.ui.models.CrewGroupUiState" />
+
+        <variable
+            name="listener"
+            type="com.karrar.movieapp.ui.adapters.ActorsInteractionListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/cast_card_shape">
+
+        <TextView
+            android:id="@+id/crew_jop_name"
+            style="@style/Body_MD.Regular"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8.dp"
+            android:ellipsize="end"
+            android:gravity="start|center_vertical"
+            android:lines="2"
+            android:text="@{item.job}"
+            android:textAlignment="textStart"
+            android:textColor="@color/shade_secondary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/crew_name"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Characters" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/crew_name"
+            style="@style/Body_MD.Medium"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:ellipsize="end"
+            android:gravity="end|center_vertical"
+            android:lines="2"
+            android:text="@{item.names}"
+            android:textAlignment="textEnd"
+            android:textColor="@color/shade_primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/crew_jop_name"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Bob Kane" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
