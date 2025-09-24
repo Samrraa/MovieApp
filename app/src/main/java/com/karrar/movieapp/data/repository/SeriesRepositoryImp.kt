@@ -24,7 +24,7 @@ import com.karrar.movieapp.data.repository.mediaDataSource.series.SeriesDataSour
 import com.karrar.movieapp.data.repository.serchDataSource.SearchDataSourceContainer
 import com.karrar.movieapp.domain.mappers.MediaDataSourceContainer
 import kotlinx.coroutines.flow.Flow
-import java.util.*
+import java.util.Date
 import javax.inject.Inject
 
 class SeriesRepositoryImp @Inject constructor(
@@ -191,8 +191,8 @@ class SeriesRepositoryImp @Inject constructor(
         return service.getTvShowDetails(tvShowId).body()
     }
 
-    override suspend fun getTvShowCast(tvShowId: Int): CreditsDto? {
-        return service.getTvShowCast(tvShowId).body()
+    override suspend fun getTvShowCredits(tvShowId: Int): CreditsDto? {
+        return service.getTvShowCredits(tvShowId).body()
     }
 
     override suspend fun getTvShowReviews(tvShowId: Int): List<ReviewsDto>? {
