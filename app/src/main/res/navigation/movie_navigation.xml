@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/movie_navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/matchScreenFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -328,6 +328,21 @@
         <action
             android:id="@+id/action_tvShowDetailFragment_to_youtubePlayerActivity"
             app:destination="@id/youtubePlayerActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/matchQuestionsFragment"
+        android:name="com.karrar.movieapp.ui.match.questions.MatchQuestionsFragment"
+        android:label=""
+        tools:layout="@layout/fragment_match_questions" />
+    <fragment
+        android:id="@+id/matchScreenFragment"
+        android:name="com.karrar.movieapp.ui.match.MatchScreenFragment"
+        android:label="fragment_match_screen"
+        tools:layout="@layout/fragment_match_screen" >
+        <action
+            android:id="@+id/action_matchScreenFragment_to_matchQuestionsFragment"
+            app:destination="@id/matchQuestionsFragment" />
     </fragment>
 
 </navigation>

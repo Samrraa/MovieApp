@@ -51,6 +51,11 @@
     <color name="additional_secondary_red">#EBEEEE</color>
     <color name="additional_secondary_green">#EEF5EF</color>
     <color name="additional_secondary_yellow">#FFFAEB</color>
+    <!-- Button -->
+    <color name="button_onPrimary">#FFFFFF</color>
+    <color name="button_onSecondary">#717171</color>
+    <color name="button_onDisabled">#A5A5A5</color>
+    <color name="button_onTertiary">#536DFE</color>
 
 
 </resources>
