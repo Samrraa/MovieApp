@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Movie App</string>
-
     <string name="see_all">See all</string>
     <string name="top_rated">Top Rated</string>
     <string name="latest">Latest</string>
@@ -105,5 +104,6 @@
     <string name="upcoming_movies">Upcoming Movies</string>
     <string name="your_collections">Your Collections</string>
     <string name="show_more">Show More</string>
+    <string name="behind_the_scenes">Behind the Scenes</string>
     <string name="match">Match</string>
 </resources>

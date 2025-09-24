@@ -8,9 +8,11 @@ import com.karrar.movieapp.domain.usecases.tvShowDetails.GetTvShowDetailsUseCase
 import com.karrar.movieapp.domain.usecases.tvShowDetails.InsertTvShowUserCase
 import com.karrar.movieapp.domain.usecases.tvShowDetails.SetRatingUesCase
 import com.karrar.movieapp.ui.adapters.ActorsInteractionListener
+import com.karrar.movieapp.ui.adapters.CrewInteractionListener
 import com.karrar.movieapp.ui.base.BaseViewModel
 import com.karrar.movieapp.ui.movieDetails.DetailInteractionListener
 import com.karrar.movieapp.ui.movieDetails.mapper.ActorUIStateMapper
+import com.karrar.movieapp.ui.movieDetails.mapper.CrewGroupUiStateMapper
 import com.karrar.movieapp.ui.tvShowDetails.tvShowUIMapper.TvShowMapperContainer
 import com.karrar.movieapp.ui.tvShowDetails.tvShowUIState.DetailItemUIState
 import com.karrar.movieapp.ui.tvShowDetails.tvShowUIState.Error
@@ -33,9 +35,10 @@ class TvShowDetailsViewModel @Inject constructor(
     private val sessionIDUseCase: GetSessionIDUseCase,
     private val tvShowMapperContainer: TvShowMapperContainer,
     private val actorUIStateMapper: ActorUIStateMapper,
+    private val crewUIStateMapper: CrewGroupUiStateMapper,
     state: SavedStateHandle,
 ) : BaseViewModel(), ActorsInteractionListener, SeasonInteractionListener,
-    DetailInteractionListener {
+    DetailInteractionListener, CrewInteractionListener {
 
     val args = TvShowDetailsFragmentArgs.fromSavedStateHandle(state)
 
@@ -54,7 +57,7 @@ class TvShowDetailsViewModel @Inject constructor(
         _stateUI.update { it.copy(isLoading = true, errorUIState = emptyList()) }
         getTvShowDetails(args.tvShowId)
         getLoginStatus()
-        getTvShowCast(args.tvShowId)
+        getSeriesCredits(args.tvShowId)
         getSeasons(args.tvShowId)
         getTvShowReviews(args.tvShowId)
     }
@@ -88,20 +91,26 @@ class TvShowDetailsViewModel @Inject constructor(
         }
     }
 
-    private fun getTvShowCast(tvShowId: Int) {
+    private fun getSeriesCredits(movieId: Int) {
         viewModelScope.launch {
             try {
-                val result = getTvShowDetailsUseCase.getSeriesCast(tvShowId)
-                _stateUI.update { it ->
+                val result = getTvShowDetailsUseCase.getSeriesCast(movieId)
+                _stateUI.update {
                     it.copy(
-                        seriesCastResult = result.map { actorUIStateMapper.map(it) },
+                        seriesCastResult = result.cast.map { actor -> actorUIStateMapper.map(actor) },
+                        seriesCrewResult = crewUIStateMapper.map(result.crew),
                         isLoading = false
                     )
                 }
-                updateDetailItems(DetailItemUIState.Cast(_stateUI.value.seriesCastResult))
-            } catch (e: Exception) {
-            }
 
+                updateDetailItems(
+                    DetailItemUIState.Cast(_stateUI.value.seriesCastResult)
+                )
+                updateDetailItems(
+                    DetailItemUIState.Crew(_stateUI.value.seriesCrewResult)
+                )
+            } catch (_: Throwable) {
+            }
         }
     }
 
@@ -218,4 +227,7 @@ class TvShowDetailsViewModel @Inject constructor(
         _tvShowDetailsUIEvent.update { Event(TvShowDetailsUIEvent.ClickSeasonEvent(seasonNumber)) }
     }
 
+    override fun onClickCrew(crewID: Int) {
+        // Handle crew click event here
+    }
 }
