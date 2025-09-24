@@ -3,7 +3,6 @@ package com.karrar.movieapp.ui.movieDetails
 import androidx.lifecycle.ViewModel
 import com.karrar.movieapp.domain.models.*
 import com.karrar.movieapp.ui.models.ActorUiState
-import com.karrar.movieapp.ui.models.MediaUiState
 
 
 //sealed class DetailItem(val priority: Int) {

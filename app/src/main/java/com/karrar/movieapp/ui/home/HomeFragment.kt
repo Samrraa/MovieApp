@@ -35,15 +35,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 homeAdapter.setItems(
                     mutableListOf(
                         it.popularMovies,
-                        it.tvShowsSeries,
-                        it.onTheAiringSeries,
-                        it.airingTodaySeries,
+                        it.recentlyReleased,
+                        it.whatShouldIWatch,
                         it.upcomingMovies,
-                        it.nowStreamingMovies,
-                        it.mysteryMovies,
-                        it.adventureMovies,
-                        it.trendingMovies,
-                        it.actors,
+                        it.matchesYourVibe,
+                        it.topRatedTVShows,
+                        it.recentlyViewed,
                         it.collections
                     )
                 )
@@ -69,30 +66,37 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     event.actorID
                 )
             }
+
             is HomeUIEvent.ClickMovieEvent -> {
                 HomeFragmentDirections.actionHomeFragmentToMovieDetailFragment(
                     event.movieID
                 )
             }
+
             HomeUIEvent.ClickSeeAllActorEvent -> {
                 HomeFragmentDirections.actionHomeFragmentToActorsFragment()
             }
+
             is HomeUIEvent.ClickSeeAllMovieEvent -> {
                 HomeFragmentDirections.actionHomeFragmentToAllMovieFragment(
                     -1, event.mediaType
                 )
             }
+
             is HomeUIEvent.ClickSeeAllTVShowsEvent -> {
                 HomeFragmentDirections.actionHomeFragmentToAllMovieFragment(
                     -1,
                     event.mediaType
                 )
             }
+
             is HomeUIEvent.ClickSeriesEvent -> {
                 HomeFragmentDirections.actionHomeFragmentToTvShowDetailsFragment(
                     event.seriesID
                 )
             }
+
+            HomeUIEvent.ClickWhatShouldIWatchEvent -> TODO()
         }
         findNavController().navigate(action)
     }

@@ -11,7 +11,7 @@ import com.karrar.movieapp.databinding.FragmentAllMovieBinding
 import com.karrar.movieapp.domain.enums.AllMediaType
 import com.karrar.movieapp.ui.adapters.LoadUIStateAdapter
 import com.karrar.movieapp.ui.base.BaseFragment
-import com.karrar.movieapp.ui.models.MediaUiState
+import com.karrar.movieapp.ui.models.MediaUi
 import com.karrar.movieapp.utilities.collect
 import com.karrar.movieapp.utilities.collectLast
 import com.karrar.movieapp.utilities.setSpanSize
@@ -46,7 +46,7 @@ class AllMovieFragment : BaseFragment<FragmentAllMovieBinding>() {
     }
 
 
-    private suspend fun setAllMedia(itemsPagingData: PagingData<MediaUiState>) {
+    private suspend fun setAllMedia(itemsPagingData: PagingData<MediaUi>) {
         allMediaAdapter.submitData(itemsPagingData)
     }
 

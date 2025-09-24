@@ -5,15 +5,12 @@ import com.karrar.movieapp.ui.models.CollectionUiState
 
 data class HomeUiState(
     val popularMovies: HomeItem = HomeItem.Slider(emptyList()),
-    val trendingMovies: HomeItem = HomeItem.Trending(emptyList()),
-    val nowStreamingMovies: HomeItem = HomeItem.NowStreaming(emptyList()),
-    val adventureMovies: HomeItem = HomeItem.Adventure(emptyList()),
-    val mysteryMovies: HomeItem = HomeItem.Mystery(emptyList()),
-    val upcomingMovies: HomeItem = HomeItem.Upcoming(emptyList()),
-    val onTheAiringSeries: HomeItem = HomeItem.OnTheAiring(emptyList()),
-    val airingTodaySeries: HomeItem = HomeItem.AiringToday(emptyList()),
-    val tvShowsSeries: HomeItem = HomeItem.TvShows(emptyList()),
-    val actors: HomeItem = HomeItem.Actor(emptyList()),
+    val recentlyReleased: HomeItem = HomeItem.RecentlyReleased(emptyList()),
+    val whatShouldIWatch: HomeItem = HomeItem.ItemSuggestion("", "", ""),
+    val upcomingMovies: HomeItem = HomeItem.UpcomingMovies(emptyList()),
+    val matchesYourVibe: HomeItem = HomeItem.MatchesYourVibe(emptyList()),
+    val topRatedTVShows: HomeItem = HomeItem.TopRatedTVShows(emptyList()),
+    val recentlyViewed: HomeItem = HomeItem.RecentlyViewed(emptyList()),
     val collections: HomeItem = HomeItem.Collections(
         listOf(
             CollectionUiState(0, "My Favorite TV Shows", "5 shows"),
