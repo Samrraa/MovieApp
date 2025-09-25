@@ -12,7 +12,6 @@
         android:layout_marginHorizontal="12dp"
         android:background="@drawable/item_featued_collection_background" />
 
-    <!-- Card sits above -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="80dp"

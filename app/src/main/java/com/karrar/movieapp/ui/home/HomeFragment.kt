@@ -41,7 +41,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                         it.matchesYourVibe,
                         it.topRatedTVShows,
                         it.recentlyViewed,
-                        it.collections
+                        it.collections,
+                        it.needMoreWatch,
                     )
                 )
             }
@@ -97,6 +98,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             }
 
             HomeUIEvent.ClickWhatShouldIWatchEvent -> TODO()
+
+            HomeUIEvent.ClickNeedMoreToWatchEvent -> TODO()
         }
         findNavController().navigate(action)
     }

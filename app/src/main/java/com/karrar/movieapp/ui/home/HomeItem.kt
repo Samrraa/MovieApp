@@ -7,15 +7,19 @@ import com.karrar.movieapp.ui.models.MediaUi
 sealed class HomeItem(val priority: Int) {
     data class Slider(val items: List<PopularUiState>) : HomeItem(0)
     data class RecentlyReleased(val items: List<MediaUi>) : HomeItem(1)
-    data class ItemSuggestion(
+    data class WhatShouldIWatch(
         val mainTitle: String,
         val secondaryTitle: String,
         val infoTitle: String
     ) : HomeItem(2)
-
     data class UpcomingMovies(val items: List<MediaUi>) : HomeItem(3)
     data class MatchesYourVibe(val items: List<MediaUi>) : HomeItem(4)
     data class TopRatedTVShows(val items: List<MediaUi>) : HomeItem(5)
     data class RecentlyViewed(val items: List<MediaUi>) : HomeItem(6)
     data class Collections(val items: List<CollectionUiState>) : HomeItem(8)
+    data class NeedMoreWatch(
+        val mainTitle: String,
+        val secondaryTitle: String,
+        val infoTitle: String
+    ) : HomeItem(9)
 }

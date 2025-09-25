@@ -11,7 +11,12 @@ import com.karrar.movieapp.BR
 import com.karrar.movieapp.R
 import com.karrar.movieapp.databinding.ItemPopularMovieBinding
 import com.karrar.movieapp.domain.enums.HomeItemsType
-import com.karrar.movieapp.ui.adapters.*
+import com.karrar.movieapp.ui.adapters.CollectionAdapter
+import com.karrar.movieapp.ui.adapters.CollectionInteractionListener
+import com.karrar.movieapp.ui.adapters.MediaAdapter
+import com.karrar.movieapp.ui.adapters.MediaInteractionListener
+import com.karrar.movieapp.ui.adapters.MovieAdapter
+import com.karrar.movieapp.ui.adapters.MovieInteractionListener
 import com.karrar.movieapp.ui.base.BaseAdapter
 import com.karrar.movieapp.ui.base.BaseInteractionListener
 import com.karrar.movieapp.ui.home.HomeInteractionListener
@@ -73,11 +78,15 @@ class HomeAdapter(
                     }
                 }
 
-                is HomeItem.ItemSuggestion -> {
+                is HomeItem.WhatShouldIWatch -> {
                     holder.binding.run {
-                        setVariable(BR.main_title, currentItem.mainTitle)
-                        setVariable(BR.secondary_title, currentItem.secondaryTitle)
-                        setVariable(BR.info_title, currentItem.infoTitle)
+                        setVariable(BR.mainTitle, currentItem.mainTitle)
+                        setVariable(BR.secondaryTitle, currentItem.secondaryTitle)
+                        setVariable(BR.infoTitle, currentItem.infoTitle)
+                        setVariable(
+                            BR.listener,
+                            listener as HomeInteractionListener
+                        )
                     }
                 }
 
@@ -104,7 +113,8 @@ class HomeAdapter(
                                 "Matches your Vibe"
                             )
                         )
-                    }                }
+                    }
+                }
 
                 is HomeItem.TopRatedTVShows -> {
                     holder.binding.run {
@@ -116,7 +126,8 @@ class HomeAdapter(
                                 "Top Rated TV Shows"
                             )
                         )
-                    }                }
+                    }
+                }
 
                 is HomeItem.RecentlyViewed -> {
                     holder.binding.run {
@@ -140,6 +151,14 @@ class HomeAdapter(
                                 listener as CollectionInteractionListener
                             )
                         )
+                    }
+                }
+
+                is HomeItem.NeedMoreWatch -> {
+                    holder.binding.run {
+                        setVariable(BR.mainTitle, currentItem.mainTitle)
+                        setVariable(BR.secondaryTitle, currentItem.secondaryTitle)
+                        setVariable(BR.infoTitle, currentItem.infoTitle)
                     }
                 }
             }
@@ -176,14 +195,14 @@ class HomeAdapter(
             return when (homeItems[position]) {
                 is HomeItem.Slider -> R.layout.list_popular
                 is HomeItem.RecentlyReleased,
-                is HomeItem.ItemSuggestion -> R.layout.item_suggestion
+                is HomeItem.WhatShouldIWatch -> R.layout.item_suggestion
                 is HomeItem.UpcomingMovies,
                 is HomeItem.MatchesYourVibe,
                 is HomeItem.TopRatedTVShows,
                 is HomeItem.RecentlyViewed,
                     -> R.layout.list_media
-
                 is HomeItem.Collections -> R.layout.list_collection
+                is HomeItem.NeedMoreWatch -> R.layout.item_suggestion
             }
         }
         return -1
