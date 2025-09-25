@@ -111,4 +111,13 @@
     <string name="not_sure_what_to_watch">Not sure what to watch?</string>
     <string name="behind_the_scenes">Behind the Scenes</string>
     <string name="match">Match</string>
+    <string name="settings">Settings</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="language">Language</string>
+    <string name="content_preferences">Content Preferences</string>
+    <string name="my_profile">My Profile</string>
+    <string name="login_or_sign_up">Login or Sign Up</string>
+    <string name="to_personalize_your_experience">to personalize your experience!</string>
+    <string name="history">History</string>
+    <string name="my_collections">My Collections</string>
 </resources>

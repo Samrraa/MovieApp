@@ -4,6 +4,8 @@ import androidx.lifecycle.viewModelScope
 import com.karrar.movieapp.domain.usecases.CheckIfLoggedInUseCase
 import com.karrar.movieapp.domain.usecases.GetAccountDetailsUseCase
 import com.karrar.movieapp.ui.base.BaseViewModel
+import com.karrar.movieapp.ui.profile.adapter.Shortcut
+import com.karrar.movieapp.ui.profile.adapter.ShortcutsInteractionListener
 import com.karrar.movieapp.utilities.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +19,7 @@ class ProfileViewModel @Inject constructor(
     private val getAccountDetailsUseCase: GetAccountDetailsUseCase,
     private val accountUIStateMapper: AccountUIStateMapper,
     private val checkIfLoggedInUseCase: CheckIfLoggedInUseCase
-) : BaseViewModel() {
+) : BaseViewModel(), ShortcutsInteractionListener {
 
     private val _profileDetailsUIState = MutableStateFlow(ProfileUIState())
     val profileDetailsUIState = _profileDetailsUIState.asStateFlow()
@@ -50,7 +52,7 @@ class ProfileViewModel @Inject constructor(
                             isLoading = false
                         )
                     }
-                } catch (t: Throwable) {
+                } catch (_: Throwable) {
                     _profileDetailsUIState.update {
                         it.copy(isLoading = false, error = true)
                     }
@@ -77,5 +79,9 @@ class ProfileViewModel @Inject constructor(
 
     fun onClickLogin() {
         _profileUIEvent.update { Event(ProfileUIEvent.LoginEvent) }
+    }
+
+    override fun onShortcutClick(shortcut: Shortcut) {
+
     }
 }

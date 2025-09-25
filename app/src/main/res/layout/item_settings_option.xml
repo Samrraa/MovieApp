@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="hasSwitch"
+            type="boolean" />
+
+        <variable
+            name="hasDivider"
+            type="boolean" />
+
+        <variable
+            name="isVisible"
+            type="boolean" />
+
+        <variable
+            name="iconDrawable"
+            type="android.graphics.drawable.Drawable" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_card"
+        android:visibility="@{isVisible ? View.VISIBLE : View.GONE}">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginVertical="18dp"
+            android:src="@{iconDrawable}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_label"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/brand_primary" />
+
+        <TextView
+            android:id="@+id/tv_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{title}"
+            android:textColor="@color/shade_primary"
+            app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+            app:layout_constraintEnd_toStartOf="@id/iv_arrow"
+            app:layout_constraintStart_toEndOf="@id/iv_icon"
+            app:layout_constraintTop_toTopOf="@id/iv_icon" />
+
+        <ImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginVertical="18dp"
+            android:src="@drawable/outline_alt_arrow_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/shade_tertiary" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/btn_switch"
+            android:layout_width="40dp"
+            android:layout_height="24dp"
+            android:thumb="@drawable/custom_thumb"
+            android:checked="true"
+            android:visibility="@{hasSwitch ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:track="@drawable/custom_track" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:visibility="@{hasDivider ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

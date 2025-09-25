@@ -1,9 +1,12 @@
 package com.karrar.movieapp.utilities
 
+import android.content.res.ColorStateList
+import android.content.res.Resources
 import android.view.View
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -159,6 +162,47 @@ fun bindMovieImage(image: ImageView, imageURL: String?) {
     }
 }
 
+@BindingAdapter("app:profileImage")
+fun bindProfileImage(image: ImageView, imageURL: String?) {
+    imageURL?.let {
+        image.load(imageURL) {
+            placeholder(R.drawable.loading)
+            error(R.drawable.due_tone_profile)
+            transformations()
+            listener(
+                onError = { _, _ ->
+                    // Set padding and tint for error icon
+                    image.setPadding(14.dpToPx(), 14.dpToPx(), 14.dpToPx(), 14.dpToPx())
+                    image.scaleType = ImageView.ScaleType.CENTER_INSIDE
+                    image.imageTintList = ColorStateList.valueOf(
+                        ContextCompat.getColor(image.context, R.color.shade_secondary)
+                    )
+                },
+                onSuccess = { _, _ ->
+                    // Reset for successful image load
+                    image.setPadding(0, 0, 0, 0)
+                    image.scaleType = ImageView.ScaleType.CENTER_CROP
+                    image.imageTintList = null
+                }
+            )
+        }
+    }
+}
+
+fun Int.dpToPx(): Int {
+    return (this * Resources.getSystem().displayMetrics.density).toInt()
+}
+
+@BindingAdapter("app:iconRes")
+fun bindShortcutIcon(image: ImageView, iconRes: Int) {
+    image.setImageDrawable(ContextCompat.getDrawable(image.context, iconRes))
+}
+
+@BindingAdapter("app:textRes")
+fun bindShortcutLabel(textView: TextView, labelRes: Int) {
+    textView.text = textView.context.getString(labelRes)
+}
+
 @BindingAdapter("app:showProfileWhenSuccess")
 fun showWhenProfileSuccess(view: View, userName: String) {
     view.isVisible = userName.isNotEmpty()
@@ -246,7 +290,7 @@ fun setRating(view: RatingBar?, rating: Float) {
 }
 
 @BindingAdapter("showWhenTextNotEmpty")
-fun <T> showWhenTextNotEmpty(view: View,text:String){
+fun <T> showWhenTextNotEmpty(view: View, text: String) {
     view.isVisible = text.isNotEmpty()
 }
 
