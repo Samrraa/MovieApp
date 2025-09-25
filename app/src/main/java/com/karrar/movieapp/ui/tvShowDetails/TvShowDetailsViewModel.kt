@@ -11,7 +11,7 @@ import com.karrar.movieapp.ui.adapters.ActorsInteractionListener
 import com.karrar.movieapp.ui.adapters.CrewInteractionListener
 import com.karrar.movieapp.ui.base.BaseViewModel
 import com.karrar.movieapp.ui.movieDetails.DetailInteractionListener
-import com.karrar.movieapp.ui.movieDetails.mapper.ActorUIStateMapper
+import com.karrar.movieapp.ui.movieDetails.mapper.CastUiStateMapper
 import com.karrar.movieapp.ui.movieDetails.mapper.CrewGroupUiStateMapper
 import com.karrar.movieapp.ui.tvShowDetails.tvShowUIMapper.TvShowMapperContainer
 import com.karrar.movieapp.ui.tvShowDetails.tvShowUIState.DetailItemUIState
@@ -34,7 +34,7 @@ class TvShowDetailsViewModel @Inject constructor(
     private val setRatingUesCase: SetRatingUesCase,
     private val sessionIDUseCase: GetSessionIDUseCase,
     private val tvShowMapperContainer: TvShowMapperContainer,
-    private val actorUIStateMapper: ActorUIStateMapper,
+    private val castUiStateMapper: CastUiStateMapper,
     private val crewUIStateMapper: CrewGroupUiStateMapper,
     state: SavedStateHandle,
 ) : BaseViewModel(), ActorsInteractionListener, SeasonInteractionListener,
@@ -97,7 +97,7 @@ class TvShowDetailsViewModel @Inject constructor(
                 val result = getTvShowDetailsUseCase.getSeriesCast(movieId)
                 _stateUI.update {
                     it.copy(
-                        seriesCastResult = result.cast.map { actor -> actorUIStateMapper.map(actor) },
+                        seriesCastResult = result.cast.map { cast -> castUiStateMapper.map(cast) },
                         seriesCrewResult = crewUIStateMapper.map(result.crew),
                         isLoading = false
                     )
