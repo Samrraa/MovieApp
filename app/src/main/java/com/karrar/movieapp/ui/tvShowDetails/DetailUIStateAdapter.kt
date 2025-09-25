@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.karrar.movieapp.BR
 import com.karrar.movieapp.R
-import com.karrar.movieapp.ui.adapters.ActorAdapter
 import com.karrar.movieapp.ui.adapters.ActorsInteractionListener
+import com.karrar.movieapp.ui.adapters.CastAdapter
 import com.karrar.movieapp.ui.adapters.CrewAdapter
 import com.karrar.movieapp.ui.adapters.CrewInteractionListener
 import com.karrar.movieapp.ui.base.BaseAdapter
@@ -48,7 +48,7 @@ class DetailUIStateAdapter(
                 holder.binding.run {
                     setVariable(
                         BR.adapterRecycler,
-                        ActorAdapter(
+                        CastAdapter(
                             currentItem.data,
                             R.layout.item_cast,
                             listener as ActorsInteractionListener

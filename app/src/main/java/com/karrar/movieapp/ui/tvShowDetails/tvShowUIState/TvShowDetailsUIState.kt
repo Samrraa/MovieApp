@@ -1,11 +1,11 @@
 package com.karrar.movieapp.ui.tvShowDetails.tvShowUIState
 
-import com.karrar.movieapp.ui.models.ActorUiState
+import com.karrar.movieapp.ui.models.CastUiState
 import com.karrar.movieapp.ui.models.CrewGroupUiState
 
 data class TvShowDetailsUIState(
     val tvShowDetailsResult: TvShowDetailsResultUIState = TvShowDetailsResultUIState(),
-    val seriesCastResult: List<ActorUiState> = listOf(),
+    val seriesCastResult: List<CastUiState> = listOf(),
     val seriesCrewResult: List<CrewGroupUiState> = emptyList(),
     val seriesSeasonsResult: List<SeasonUIState> = listOf(),
     val seriesReviewsResult: List<ReviewUIState> = listOf(),

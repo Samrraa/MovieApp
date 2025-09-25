@@ -1,7 +1,7 @@
 package com.karrar.movieapp.ui.movieDetails.movieDetailsUIState
 
 import androidx.lifecycle.ViewModel
-import com.karrar.movieapp.ui.models.ActorUiState
+import com.karrar.movieapp.ui.models.CastUiState
 import com.karrar.movieapp.ui.models.CrewGroupUiState
 import com.karrar.movieapp.ui.models.MediaUiState
 
@@ -10,7 +10,7 @@ sealed class DetailItemUIState(val priority: Int) {
 
     class Header(val data: MovieDetailsUIState?) : DetailItemUIState(0)
 
-    class Cast(val data: List<ActorUiState>) : DetailItemUIState(1)
+    class Cast(val data: List<CastUiState>) : DetailItemUIState(1)
 
     class Crew(val data: List<CrewGroupUiState>) : DetailItemUIState(2)
 
